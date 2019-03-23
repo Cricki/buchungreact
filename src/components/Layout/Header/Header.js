@@ -4,15 +4,15 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
 const header = props => {
-    return (
-      <AppBar position="static">
-        <Toolbar>
-            <Typography variant="display2" color="inherit">
-            Buchungssätze
-            </Typography>
-        </Toolbar>
-      </AppBar>
-    );
-}
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="display2" color="inherit">
+          stuff
+        </Typography>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
 export default header;
