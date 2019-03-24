@@ -35,11 +35,11 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 2
   }
 });
+
 export default class FormDialog extends React.Component {
   state = {
     open: false,
     age: "",
-    name: "hai",
     soll: " ",
     haben: " ",
     labelWidth: 0,
@@ -57,8 +57,11 @@ export default class FormDialog extends React.Component {
   };
 
   handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
+      this.setState({ [name]: event.target.value });
   };
+
+    
+
 
   render() {
     return (
@@ -91,21 +94,23 @@ export default class FormDialog extends React.Component {
             />
             <p>Vorsteuer:</p>
             <Switch
-              onCLick={event =>
-                this.setState({ vorsteuer: !this.state.vorsteuer })
+              onClick={event => (
+                  this.setState({ vorsteuer: !this.state.vorsteuer })
+              )
               }
             />
             <p>Umsatzsteuer:</p>
             <Switch
-              onCLick={event =>
-                this.setState({ umsatzsteuer: !this.state.umsatzsteuer })
+              onClick={event =>
+                      this.setState(prevState => ({
+                          umsatzsteuer: !prevState.umsatzsteuer
+                      }))
               }
             />
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="soll-native-simple">Soll</InputLabel>
               <Select
                 native
-                fullwidth
                 value={this.state.soll}
                 onChange={this.handleChange("soll")}
                 inputProps={{
@@ -114,7 +119,7 @@ export default class FormDialog extends React.Component {
                 }}
               >
                 <option value="" />
-                <option value={"solliuhrpark"}>Fuhrpark</option>
+                <option value={"sollFuhrpark"}>Fuhrpark</option>
                 <option value={"sollRohstoffe"}>Rohstoffe</option>
                 <option value={"sollForderungen"}>Forderungen</option>
                 <option value={"sollBank"}>Bank</option>
@@ -131,7 +136,6 @@ export default class FormDialog extends React.Component {
                 native
                 value={this.state.haben}
                 onChange={this.handleChange("haben")}
-                fullWidth
                 inputProps={{
                   name: "haben",
                   id: "haben-native-simple"
