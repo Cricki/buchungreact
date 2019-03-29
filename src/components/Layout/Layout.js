@@ -5,15 +5,14 @@ import Content from "./Content/Content";
 import FormDialog from "../UI/FormDialog/FormDialog";
 
 class Layout extends Component {
-	render() {
-		return (
-			<Fragment>
-				<Header></Header>
-				<Content></Content>
-				<FormDialog></FormDialog>
-			</Fragment>
-		);
-	}
+  render() {
+    return (
+      <Fragment>
+        <Header />
+        <Content />
+      </Fragment>
+    );
+  }
 }
 
 export default Layout;

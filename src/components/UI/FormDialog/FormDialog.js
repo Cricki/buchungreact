@@ -39,13 +39,7 @@ const styles = theme => ({
 export default class FormDialog extends React.Component {
   state = {
     open: false,
-    age: "",
-    soll: " ",
-    haben: " ",
-    labelWidth: 0,
-    amount: 0,
-    vorsteuer: false,
-    umsatzsteuer: false
+    labelWidth: 0
   };
 
   handleClickOpen = () => {
@@ -55,13 +49,6 @@ export default class FormDialog extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-
-  handleChange = name => event => {
-      this.setState({ [name]: event.target.value });
-  };
-
-    
-
 
   render() {
     return (
@@ -91,28 +78,25 @@ export default class FormDialog extends React.Component {
               label="Betrag"
               type="number"
               fullWidth
+              onChange={this.props.handleAmountChange}
             />
             <p>Vorsteuer:</p>
             <Switch
-              onClick={event => (
-                  this.setState({ vorsteuer: !this.state.vorsteuer })
-              )
-              }
+              color="primary"
+              onClick={this.props.handleVorsteuerChange}
             />
             <p>Umsatzsteuer:</p>
             <Switch
-              onClick={event =>
-                      this.setState(prevState => ({
-                          umsatzsteuer: !prevState.umsatzsteuer
-                      }))
-              }
+              color="primary"
+              onClick={this.props.handleUmsatzsteuerChange}
             />
+            <br />
             <FormControl className={classes.formControl}>
               <InputLabel htmlFor="soll-native-simple">Soll</InputLabel>
               <Select
                 native
-                value={this.state.soll}
-                onChange={this.handleChange("soll")}
+                value={this.props.soll}
+                onChange={this.props.handleSollChange}
                 inputProps={{
                   name: "soll",
                   id: "soll-native-simple"
@@ -134,8 +118,8 @@ export default class FormDialog extends React.Component {
               <InputLabel htmlFor="haben-native-simple">Haben</InputLabel>
               <Select
                 native
-                value={this.state.haben}
-                onChange={this.handleChange("haben")}
+                value={this.props.haben}
+                onChange={this.props.handleHabenChange}
                 inputProps={{
                   name: "haben",
                   id: "haben-native-simple"
