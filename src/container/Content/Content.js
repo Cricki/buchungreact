@@ -1,18 +1,41 @@
 import React, { Component } from "react";
 import { Fragment } from "react";
 
-import TTable from "../../TTable/TTable";
-import AccountLines from "../../AccountLines/AccountLines";
-import FormDialog from "../../UI/FormDialog/FormDialog";
+import TTable from "../../components/TTable/TTable";
+import AccountLines from "../../components/AccountLines/AccountLines";
+import FormDialog from "../../components/UI/FormDialog/FormDialog";
 
 class Content extends Component {
   state = {
     //  Für T-Konten relevante Daten
-    soll: null,
-    haben: null,
-    amount: null,
+    soll: "",
+    haben: "",
+    amount: 0,
     vorsteuer: false,
-    umsatzsteuer: false
+    umsatzsteuer: false,
+    buchungsSatz: " ",
+    buchungsListe: []
+  };
+
+  handleBuchungsListeChange = () => {
+    this.state.soll == null ||
+    this.state.amount == null ||
+    this.state.haben == null
+      ? this.setState({
+          buchungsSatz: "Noch kein Buchungssatz vorhanden"
+        })
+      : this.setState({
+          buchungsSatz:
+            this.state.soll +
+            " " +
+            this.state.amount +
+            " an " +
+            this.state.haben +
+            " " +
+            this.state.amount,
+          buchungsListe: this.state.buchungsListe.push(this.state.buchungsSatz)
+        });
+    console.log(typeof this.state.buchungsListe);
   };
 
   handleAmountChange = event => {
@@ -58,12 +81,15 @@ class Content extends Component {
           amount={this.state.amount}
           vorsteuer={this.state.vorsteuer}
           umsatzsteuer={this.state.umsatzsteuer}
+          buchungsSatz={this.state.buchungsSatz}
+          buchungsListe={this.state.buchungsListe}
         >
           {this.state.soll} {this.state.amount} an {this.state.haben}{" "}
           {this.state.amount}
         </AccountLines>
         <TTable />
         <FormDialog
+          handleBuchungsListeChange={this.handleBuchungsListeChange}
           handleChange={this.handleChange}
           handleSollChange={this.handleSollChange}
           handleHabenChange={this.handleHabenChange}

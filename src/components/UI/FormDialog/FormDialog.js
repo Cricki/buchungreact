@@ -47,6 +47,7 @@ export default class FormDialog extends React.Component {
   };
 
   handleClose = () => {
+    this.props.handleBuchungsListeChange();
     this.setState({ open: false });
   };
 
@@ -103,12 +104,18 @@ export default class FormDialog extends React.Component {
                 }}
               >
                 <option value="" />
+                <option value="" disabled>
+                  Aktiva
+                </option>
                 <option value={"sollFuhrpark"}>Fuhrpark</option>
                 <option value={"sollRohstoffe"}>Rohstoffe</option>
                 <option value={"sollForderungen"}>Forderungen</option>
                 <option value={"sollBank"}>Bank</option>
                 <option value={"sollKasse"}>Kasse</option>
                 <option value={"sollVorsteuer"}>Vorsteuer</option>
+                <option value="" disabled>
+                  Passiva
+                </option>
                 <option value={"sollEigenkapital"}>Eigenkapital</option>
                 <option value={"sollVerb"}>Verb. LuL</option>
                 <option value={"sollUmsatzsteuer"}>Umsatzsteuer</option>
@@ -126,12 +133,14 @@ export default class FormDialog extends React.Component {
                 }}
               >
                 <option value="" />
+                <option disabled>Aktiva</option>
                 <option value={"habenFuhrpark"}>Fuhrpark</option>
                 <option value={"habenRohstoffe"}>Rohstoffe</option>
                 <option value={"habenForderungen"}>Forderungen</option>
                 <option value={"habenBank"}>Bank</option>
                 <option value={"habenKasse"}>Kasse</option>
                 <option value={"habenVorsteuer"}>Vorsteuer</option>
+                <option disabled>Passiva</option>
                 <option value={"habenEigenkapital"}>Eigenkapital</option>
                 <option value={"habenVerb"}>Verb. LuL</option>
                 <option value={"habenUmsatzsteuer"}>Umsatzsteuer</option>
@@ -147,10 +156,10 @@ export default class FormDialog extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
-              Cancel
+              Abbrechen
             </Button>
             <Button onClick={this.handleClose} color="primary">
-              Subscribe
+              Senden
             </Button>
           </DialogActions>
         </Dialog>

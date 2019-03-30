@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import Header from "./Header/Header";
-import Content from "./Content/Content";
-import FormDialog from "../UI/FormDialog/FormDialog";
+import Content from "../../container/Content/Content";
 
 class Layout extends Component {
   render() {
