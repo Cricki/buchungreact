@@ -55,10 +55,12 @@ function TTable(props) {
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>Desc</TableCell>
-            <TableCell align="right">Qty.</TableCell>
-            <TableCell align="right">@</TableCell>
-            <TableCell align="right">Price</TableCell>
+            <TableCell align="center" colSpan={2}>
+              Aktiva
+            </TableCell>
+            <TableCell align="center" colSpan={2}>
+              Passiva
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

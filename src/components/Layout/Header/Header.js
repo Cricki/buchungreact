@@ -8,7 +8,7 @@ const header = props => {
     <AppBar position="static">
       <Toolbar>
         <Typography variant="display2" color="inherit">
-          stuff
+          Accounting Records
         </Typography>
       </Toolbar>
     </AppBar>

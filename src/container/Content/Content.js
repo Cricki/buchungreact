@@ -32,10 +32,12 @@ class Content extends Component {
             " an " +
             this.state.haben +
             " " +
-            this.state.amount,
-          buchungsListe: this.state.buchungsListe.push(this.state.buchungsSatz)
+            this.state.amount +
+            "\n"
         });
-    console.log(typeof this.state.buchungsListe);
+    this.setState(prevState => ({
+      buchungsListe: [...prevState.buchungsListe, this.state.buchungsSatz]
+    }));
   };
 
   handleAmountChange = event => {
