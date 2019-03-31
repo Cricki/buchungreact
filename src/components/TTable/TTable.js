@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import SingleT from "./SingleT/SingleT";
+
 const TAX_RATE = 0.07;
 
 const styles = theme => ({
@@ -64,30 +66,24 @@ function TTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.id}>
-              <TableCell>{row.desc}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
-            </TableRow>
-          ))}
+          <SingleT />
+          <SingleT />
+        </TableBody>
+      </Table>
+      <Table>
+        <TableHead>
           <TableRow>
-            <TableCell rowSpan={3} />
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+            <TableCell align="center" colSpan={2}>
+              Aktiva
+            </TableCell>
+            <TableCell align="center" colSpan={2}>
+              Passiva
+            </TableCell>
           </TableRow>
-          <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(
-              0
-            )} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
+        </TableHead>
+        <TableBody>
+          <SingleT />
+          <SingleT />
         </TableBody>
       </Table>
     </Paper>
