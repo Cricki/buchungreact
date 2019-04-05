@@ -8,14 +8,24 @@ import TableRow from "@material-ui/core/TableRow";
 
 const singleT = props => {
   return (
-    <TableRow>
-      <TableCell align="center" colSpan={2}>
-        Aktiva
-      </TableCell>
-      <TableCell align="center" colSpan={2}>
-        Passiva
-      </TableCell>
-    </TableRow>
+    <React.Fragment>
+      <TableRow>
+        <TableCell />
+        <TableCell colSpan={3} align="center">
+          {props.title}
+        </TableCell>
+        <TableCell />
+      </TableRow>
+      <TableRow>
+        <TableCell align="center" colSpan={3}>
+          Aktiva
+        </TableCell>
+        <TableCell />
+        <TableCell align="center" colSpan={3}>
+          Passiva
+        </TableCell>
+      </TableRow>
+    </React.Fragment>
   );
 };
 

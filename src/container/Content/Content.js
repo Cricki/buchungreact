@@ -14,7 +14,16 @@ class Content extends Component {
     vorsteuer: false,
     umsatzsteuer: false,
     buchungsSatz: " ",
-    buchungsListe: []
+    buchungsListe: [],
+    aktivaAbteilungsList: [
+      "Fuhrpark",
+      "Rohstoffe",
+      "Kasse",
+      "Bank",
+      "Forderungen",
+      "Vorsteuer"
+    ],
+    passivaAbteilungsList: ["Eigenkapital", "Verbindlichkeiten", "Umsatzsteuer"]
   };
 
   handleBuchungsListeChange = () => {
@@ -89,7 +98,10 @@ class Content extends Component {
           {this.state.soll} {this.state.amount} an {this.state.haben}{" "}
           {this.state.amount}
         </AccountLines>
-        <TTable />
+        <TTable
+          aktivaAbteilungsList={this.state.aktivaAbteilungsList}
+          passivaAbteilungsList={this.state.passivaAbteilungsList}
+        />
         <FormDialog
           handleBuchungsListeChange={this.handleBuchungsListeChange}
           handleChange={this.handleChange}
