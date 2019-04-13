@@ -4,18 +4,20 @@ import Paper from "@material-ui/core/Paper";
 
 import classes from "./AccountLines";
 
-const accountLines = props => {
-  //    let amountSecond = {props.amount};
-
-  return (
-    <Paper className={classes.bgCol}>
+const accountLines = props => (
+  <Paper>
+    {props.buchungsListe.length < 1 ? (
       <ul>
         {props.buchungsListe.map((buchungsSatz, index) => (
           <li key={index}>{buchungsSatz}</li>
         ))}
       </ul>
-    </Paper>
-  );
-};
+    ) : (
+      <ul>
+        <li>{props.buchungsSatz}</li>
+      </ul>
+    )}
+  </Paper>
+);
 
 export default accountLines;

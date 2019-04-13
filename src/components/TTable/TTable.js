@@ -16,10 +16,11 @@ function TTable(props) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell align="center" colSpan={2}>
+            <TableCell align="center" colSpan={3}>
               Aktiva
             </TableCell>
-            <TableCell align="center" colSpan={2}>
+            <TableCell />
+            <TableCell align="center" colSpan={4}>
               Passiva
             </TableCell>
           </TableRow>

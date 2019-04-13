@@ -13,7 +13,7 @@ class Content extends Component {
     amount: 0,
     vorsteuer: false,
     umsatzsteuer: false,
-    buchungsSatz: " ",
+    buchungsSatz: null,
     buchungsListe: [],
     aktivaAbteilungsList: [
       "Fuhrpark",
