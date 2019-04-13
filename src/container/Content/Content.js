@@ -98,10 +98,20 @@ class Content extends Component {
           {this.state.soll} {this.state.amount} an {this.state.haben}{" "}
           {this.state.amount}
         </AccountLines>
-        <TTable
-          aktivaAbteilungsList={this.state.aktivaAbteilungsList}
-          passivaAbteilungsList={this.state.passivaAbteilungsList}
-        />
+        <div className="row">
+          <div className="col-md-6">
+            <TTable
+              aktivaAbteilungsList={this.state.aktivaAbteilungsList}
+              passivaAbteilungsList={this.state.passivaAbteilungsList}
+            />
+          </div>
+          <div className="col-md-6">
+            <TTable
+              aktivaAbteilungsList={this.state.aktivaAbteilungsList}
+              passivaAbteilungsList={this.state.passivaAbteilungsList}
+            />
+          </div>
+        </div>
         <FormDialog
           handleBuchungsListeChange={this.handleBuchungsListeChange}
           handleChange={this.handleChange}
